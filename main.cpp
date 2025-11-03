@@ -2,7 +2,8 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
-#include <algorithm>  
+#include <algorithm> 
+#include <cctype>  
 #include "Goat.h"
 using namespace std;
 
@@ -84,6 +85,15 @@ int main() {
                     cout << "Goat not found.\n";
                 }
                 break;}
+            case 8:
+                for_each(trip.begin(), trip.end(), [](Goat &g){
+                string name = g.get_name();
+                for (char &c : name) c = toupper(c);
+                g.set_name(name);
+                });
+                cout << "All goat names converted to uppercase.\n";
+                display_trip(trip);
+                break;
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -104,7 +114,8 @@ int main_menu() {
     cout << "[5] Reverse goats\n";
     cout << "[6] Count goats older than 10\n";
     cout << "[7] Find goat by name\n";
-    cout << "[8] Quit\n";
+    cout << "[8] Uppercase goat names\n";
+    cout << "[9] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
