@@ -4,6 +4,7 @@
 #include <list>
 #include <algorithm> 
 #include <cctype>  
+#include <set>
 #include "Goat.h"
 using namespace std;
 
@@ -103,6 +104,12 @@ int main() {
                 display_trip(trip);
                 break;
                 }
+            case 10: {
+                set<string> colors;
+                for_each(trip.begin(), trip.end(), [&](const Goat &g){ colors.insert(g.get_color()); });
+                cout << "Number of unique goat colors: " << colors.size() << endl;
+                break;
+                }
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -125,7 +132,8 @@ int main_menu() {
     cout << "[7] Find goat by name\n";
     cout << "[8] Uppercase goat names\n";
     cout << "[9] Remove goats by color\n";
-    cout << "[10] Quit\n";
+    cout << "[10] Count unique goat colors\n";
+    cout << "[11] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
