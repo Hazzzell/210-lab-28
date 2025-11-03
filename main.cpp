@@ -63,6 +63,11 @@ int main() {
                 trip.sort();
                 display_trip(trip);
                 break;
+            case 5:
+                cout << "Reversing goat list.\n";
+                trip.revverse();
+                display_trip(trip);
+                break;
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -80,7 +85,8 @@ int main_menu() {
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
     cout << "[4] Sort goats by name\n";
-    cout << "[5] Quit\n";
+    cout << "[5] Reverse goats\n";
+    cout << "[6] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
