@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include <algorithm>  
 #include "Goat.h"
 using namespace std;
 
@@ -68,6 +69,10 @@ int main() {
                 trip.revverse();
                 display_trip(trip);
                 break;
+            case 6: 
+                int count = count_if(trip.begin(), trip.end(), [](const Goat &g){ return g.get_age() > 10; });
+                cout << "Number of goats older than 10: " << count << endl;
+                break;
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -86,7 +91,8 @@ int main_menu() {
     cout << "[3] List goats\n";
     cout << "[4] Sort goats by name\n";
     cout << "[5] Reverse goats\n";
-    cout << "[6] Quit\n";
+    cout << "[6] Count goats older than 10\n";
+    cout << "[7] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
