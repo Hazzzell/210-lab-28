@@ -94,6 +94,15 @@ int main() {
                 cout << "All goat names converted to uppercase.\n";
                 display_trip(trip);
                 break;
+            case 9: {
+                string color;
+                cout << "Enter color to remove goats: ";
+                cin >> color;
+                trip.remove_if([&](const Goat &g){ return g.get_color() == color; });
+                cout << "Goats with color " << color << " removed.\n";
+                display_trip(trip);
+                break;
+                }
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -115,7 +124,8 @@ int main_menu() {
     cout << "[6] Count goats older than 10\n";
     cout << "[7] Find goat by name\n";
     cout << "[8] Uppercase goat names\n";
-    cout << "[9] Quit\n";
+    cout << "[9] Remove goats by color\n";
+    cout << "[10] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
