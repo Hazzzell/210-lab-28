@@ -110,6 +110,15 @@ int main() {
                 cout << "Number of unique goat colors: " << colors.size() << endl;
                 break;
                 }
+            case 11: {
+                auto it = max_element(trip.begin(), trip.end(), [](const Goat &a, const Goat &b){ return a.get_age() < b.get_age(); });
+                if (it != trip.end()) {
+                    cout << "Oldest goat: " << it->get_name() << " (" << it->get_age() << ", " << it->get_color() << ")\n";
+                } else {
+                    cout << "No goats in the list.\n";
+                }
+                break;
+            }
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -133,7 +142,8 @@ int main_menu() {
     cout << "[8] Uppercase goat names\n";
     cout << "[9] Remove goats by color\n";
     cout << "[10] Count unique goat colors\n";
-    cout << "[11] Quit\n";
+    cout << "[11] Find oldest goat\n";
+    cout << "[12] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
