@@ -73,6 +73,17 @@ int main() {
                 int count = count_if(trip.begin(), trip.end(), [](const Goat &g){ return g.get_age() > 10; });
                 cout << "Number of goats older than 10: " << count << endl;
                 break;
+            case 7: {
+                string searchName;
+                cout << "Enter goat name to find: ";
+                cin >> searchName;
+                auto it = find_if(trip.begin(), trip.end(), [&](const Goat &g){ return g.get_name() == searchName; });
+                if (it != trip.end()) {
+                    cout << "Found: " << it->get_name() << " (" << it->get_age() << ", " << it->get_color() << ")\n";
+                } else {
+                    cout << "Goat not found.\n";
+                }
+                break;}
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -92,7 +103,8 @@ int main_menu() {
     cout << "[4] Sort goats by name\n";
     cout << "[5] Reverse goats\n";
     cout << "[6] Count goats older than 10\n";
-    cout << "[7] Quit\n";
+    cout << "[7] Find goat by name\n";
+    cout << "[8] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
@@ -143,4 +155,4 @@ int select_goat(list<Goat> trp) {
         cin >> input;
     }
     return input;
-}
+}'
